@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Todo List</h1>
+
+  <div class="input-group">
+    <input
+      type="text"
+      placeholder="Add a new todo..."
+      [value]="newTitle()"
+      (input)="newTitle.set($any($event.target).value)"
+      (keyup.enter)="addTodo()"
+    />
+    <button (click)="addTodo()">Add</button>
+  </div>
+
+  <ul>
+    @for (todo of todos(); track todo.id) {
+      <li [attr.data-id]="todo.id">
+        <span>{{ todo.title }}</span>
+        <button (click)="deleteTodo(todo.id)">Delete</button>
+      </li>
+    }
+  </ul>
+</div>
