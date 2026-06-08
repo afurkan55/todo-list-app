@@ -109,4 +109,3 @@ C:\Users\Huawei\todo-list-app\TodoListApi.Tests\obj\Debug\net10.0\refint\TodoLis
 C:\Users\Huawei\todo-list-app\TodoListApi.Tests\obj\Debug\net10.0\TodoListApi.Tests.pdb
 C:\Users\Huawei\todo-list-app\TodoListApi.Tests\obj\Debug\net10.0\TodoListApi.Tests.genruntimeconfig.cache
 C:\Users\Huawei\todo-list-app\TodoListApi.Tests\obj\Debug\net10.0\ref\TodoListApi.Tests.dll
-C:\Users\Huawei\todo-list-app\TodoListApi.Tests\obj\Debug\net10.0\TodoListApi.Tests.sourcelink.json
