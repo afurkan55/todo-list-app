@@ -35,4 +35,13 @@ public class TodoController : ControllerBase
         _todos.Remove(item);
         return NoContent();
     }
+
+    [HttpPut("{id}")]
+    public IActionResult Update(int id, [FromBody] TodoItem updatedItem)
+    {   
+        var item = _todos.FirstOrDefault(t => t.Id == id);
+        if (item == null) return NotFound();
+        item.IsCompleted = updatedItem.IsCompleted;
+        return Ok(item);
+    }
 }

@@ -34,3 +34,4 @@ C:\Users\Huawei\todo-list-app\ToDoListApi\obj\Debug\net10.0\ref\TodoListApi.dll
 C:\Users\Huawei\todo-list-app\ToDoListApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Huawei\todo-list-app\ToDoListApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Huawei\todo-list-app\ToDoListApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Huawei\todo-list-app\TodoListApi\obj\Debug\net10.0\TodoListApi.sourcelink.json

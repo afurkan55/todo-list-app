@@ -21,7 +21,7 @@ export class App implements OnInit {
 
   private apiUrl = 'http://localhost:5287/api/Todo';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.loadTodos();
@@ -47,5 +47,14 @@ export class App implements OnInit {
     this.http.delete(`${this.apiUrl}/${id}`).subscribe(() => {
       this.loadTodos();
     });
+  }
+
+  toggleTodo(id: number) {
+    const todo = this.todos().find(t => t.id === id);
+    if (!todo) return;
+    this.http.put<TodoItem>(`${this.apiUrl}/${id}`, { ...todo, isCompleted: !todo.isCompleted })
+      .subscribe(() => {
+        this.loadTodos();
+      });
   }
 }

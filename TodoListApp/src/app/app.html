@@ -15,7 +15,14 @@
   <ul>
     @for (todo of todos(); track todo.id) {
       <li [attr.data-id]="todo.id">
-        <span>{{ todo.title }}</span>
+        <div class="todo-content">
+          <input
+            type="checkbox"
+            [checked]="todo.isCompleted"
+            (change)="toggleTodo(todo.id)"
+          />
+          <span [class.completed]="todo.isCompleted">{{ todo.title }}</span>
+        </div>
         <button (click)="deleteTodo(todo.id)">Delete</button>
       </li>
     }
