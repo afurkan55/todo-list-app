@@ -8,6 +8,7 @@ A full-stack Todo List application built with Angular and .NET Web API as part o
 - Angular 22
 - TypeScript
 - CSS
+- HTML
 
 **Backend**
 - .NET 10 Web API
