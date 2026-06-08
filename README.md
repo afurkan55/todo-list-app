@@ -79,7 +79,7 @@ npx playwright test
 To open last HTML report run:
 
 ```bash
-  npx playwright show-report
+npx playwright show-report
 ```
 
 ## Architecture Decisions
