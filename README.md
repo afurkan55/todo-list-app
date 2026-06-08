@@ -74,6 +74,13 @@ Make sure both backend and frontend are running, then:
 cd TodoListApp
 npx playwright test
 ```
+### Reporting E2E Tests
+
+To open last HTML report run:
+
+```bash
+  npx playwright show-report
+```
 
 ## Architecture Decisions
 
