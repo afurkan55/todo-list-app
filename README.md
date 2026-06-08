@@ -53,7 +53,7 @@ Swagger UI available at `http://localhost:5287/swagger`
 
 ```bash
 cd TodoListApp
-npm install
+npm install # only required on first run
 ng serve
 ```
 
