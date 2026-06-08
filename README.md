@@ -84,4 +84,14 @@ npx playwright show-report
 
 ## Architecture Decisions
 
-- **In-memory storage** was used as CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **In-memory storage** was used as specified in the requirements. In production, this would be replaced with a database such as SQL Server.
+- **Page Object Model** pattern was applied to Playwright tests to separate page logic from test logic, making tests easier to maintain.
+- **API-first approach** was followed — backend endpoints were defined before building the frontend.
+- **Swagger** was enabled in development mode only for security reasons.
+
+## References
+
+- [Angular Documentation](https://angular.dev)
+- [.NET Web API Documentation](https://learn.microsoft.com/en-us/aspnet/core/web-api)
+- [Playwright Documentation](https://playwright.dev)
+- [Swashbuckle (Swagger) for .NET](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
