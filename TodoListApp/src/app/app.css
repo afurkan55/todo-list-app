@@ -89,7 +89,6 @@ li span {
 
 li button {
   padding: 6px 14px;
-  background-color: #1a2d4e;
   color: white;
   border: none;
   border-radius: 4px;
@@ -98,8 +97,36 @@ li button {
   transition: background-color 0.2s;
 }
 
-li button:hover {
+li button.edit-btn {
+  background-color: #1a2d4e;
+}
+
+li button.edit-btn:hover {
+  background-color: #0f1e33;
+}
+
+li button.save-btn {
   background-color: #0099cc;
+}
+
+li button.save-btn:hover {
+  background-color: #007aaa;
+}
+
+li button.cancel-btn {
+  background-color: #6c757d;
+}
+
+li button.cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+li button.delete-btn {
+  background-color: #dc3545;
+}
+
+li button.delete-btn:hover {
+  background-color: #c82333;
 }
 
 .todo-content {

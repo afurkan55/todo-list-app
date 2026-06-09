@@ -18,6 +18,8 @@ interface TodoItem {
 export class App implements OnInit {
   todos = signal<TodoItem[]>([]);
   newTitle = signal('');
+  editingId = signal<number | null>(null);
+  editTitle = signal('');
 
   private apiUrl = 'http://localhost:5287/api/Todo';
 
@@ -54,6 +56,28 @@ export class App implements OnInit {
     if (!todo) return;
     this.http.put<TodoItem>(`${this.apiUrl}/${id}`, { ...todo, isCompleted: !todo.isCompleted })
       .subscribe(() => {
+        this.loadTodos();
+      });
+  }
+
+  startEdit(todo: TodoItem) {
+    this.editingId.set(todo.id);
+    this.editTitle.set(todo.title);
+  }
+
+  cancelEdit() {
+    this.editingId.set(null);
+    this.editTitle.set('');
+  }
+
+  saveEdit(id: number) {
+    if (!this.editTitle()) return;
+    const todo = this.todos().find(t => t.id === id);
+    if (!todo) return;
+    this.http.put<TodoItem>(`${this.apiUrl}/${id}`, { ...todo, title: this.editTitle() })
+      .subscribe(() => {
+        this.editingId.set(null);
+        this.editTitle.set('');
         this.loadTodos();
       });
   }

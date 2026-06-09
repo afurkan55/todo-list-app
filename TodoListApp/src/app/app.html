@@ -2,29 +2,28 @@
   <h1>Todo List</h1>
 
   <div class="input-group">
-    <input
-      type="text"
-      placeholder="Add a new todo..."
-      [value]="newTitle()"
-      (input)="newTitle.set($any($event.target).value)"
-      (keyup.enter)="addTodo()"
-    />
+    <input type="text" placeholder="Add a new todo..." [value]="newTitle()"
+      (input)="newTitle.set($any($event.target).value)" (keyup.enter)="addTodo()" />
     <button (click)="addTodo()">Add</button>
   </div>
 
   <ul>
     @for (todo of todos(); track todo.id) {
-      <li [attr.data-id]="todo.id">
-        <div class="todo-content">
-          <input
-            type="checkbox"
-            [checked]="todo.isCompleted"
-            (change)="toggleTodo(todo.id)"
-          />
-          <span [class.completed]="todo.isCompleted">{{ todo.title }}</span>
-        </div>
-        <button (click)="deleteTodo(todo.id)">Delete</button>
-      </li>
+    <li [attr.data-id]="todo.id">
+      <div class="todo-content">
+        <input type="checkbox" [checked]="todo.isCompleted" (change)="toggleTodo(todo.id)" />
+        @if (editingId() === todo.id) {
+        <input type="text" [value]="editTitle()" (input)="editTitle.set($any($event.target).value)"
+          (keyup.enter)="saveEdit(todo.id)" (keyup.escape)="cancelEdit()" />
+        <button class="save-btn" (click)="saveEdit(todo.id)">Save</button>
+        <button class="cancel-btn"  (click)="cancelEdit()">Cancel</button>
+        } @else {
+        <span [class.completed]="todo.isCompleted">{{ todo.title }}</span>
+        <button class="edit-btn" (click)="startEdit(todo)">Edit</button>
+        }
+      </div>
+      <button class="delete-btn" (click)="deleteTodo(todo.id)">Delete</button>
+    </li>
     }
   </ul>
 </div>

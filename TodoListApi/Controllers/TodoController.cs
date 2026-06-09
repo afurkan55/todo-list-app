@@ -42,6 +42,7 @@ public class TodoController : ControllerBase
         var item = _todos.FirstOrDefault(t => t.Id == id);
         if (item == null) return NotFound();
         item.IsCompleted = updatedItem.IsCompleted;
+        item.Title = updatedItem.Title;
         return Ok(item);
     }
 }
