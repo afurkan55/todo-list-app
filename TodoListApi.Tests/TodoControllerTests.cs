@@ -70,4 +70,21 @@ public class TodoControllerTests
         var result = controller.Update(99, updatedItem);
         Assert.IsType<NotFoundResult>(result);
     }
+
+    [Fact]
+    public void Update_UpdatesTitle_WhenTitleIsChanged()
+    {
+        var controller = CreateController();
+        var item = new TodoItem {Title = "Original Title"};
+        controller.Add(item);
+
+        var updatedItem = new TodoItem {Id=1, Title = "Updated Title", IsCompleted= false};
+        controller.Update(1, updatedItem);
+
+        var result = controller.GetAll() as OkObjectResult;
+        var todos = result!.Value as List<TodoItem>;
+            
+        Assert.Equal("Updated Title", todos![0].Title);
+
+    }
 }
