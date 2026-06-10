@@ -16,7 +16,7 @@
         <input type="text" [value]="editTitle()" (input)="editTitle.set($any($event.target).value)"
           (keyup.enter)="saveEdit(todo.id)" (keyup.escape)="cancelEdit()" />
         <button class="save-btn" (click)="saveEdit(todo.id)">Save</button>
-        <button class="cancel-btn"  (click)="cancelEdit()">Cancel</button>
+        <button class="cancel-btn" (click)="cancelEdit()">Cancel</button>
         } @else {
         <span [class.completed]="todo.isCompleted">{{ todo.title }}</span>
         <button class="edit-btn" (click)="startEdit(todo)">Edit</button>
@@ -26,4 +26,9 @@
     </li>
     }
   </ul>
+  @if (todos().length === 0) {
+  <div class="empty-state">
+    <p>No Todos yet. Add one Todo!</p>
+  </div>
+  }
 </div>
